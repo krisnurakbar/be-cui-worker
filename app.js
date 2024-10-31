@@ -1,5 +1,6 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000;
 const { worker } = require('./worker');
 
 app.get('/worker', async (req, res) => {
@@ -12,6 +13,6 @@ app.get('/worker', async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log('Worker web service listening on port 3000');
+app.listen(port, () => {
+  console.log(`Worker web service listening on port ${port}`);
 });
