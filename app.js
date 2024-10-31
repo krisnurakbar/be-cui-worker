@@ -1,3 +1,4 @@
+/*************  ✨ Codeium Command 🌟  *************/
 const express = require('express');
 const { Redis } = require('@upstash/redis');
 const app = express();
@@ -27,9 +28,16 @@ async function pollMessages() {
   }
 }
 
+setInterval(pollMessages, 30000); // Add interval to reload every 30 seconds
 app.get('/worker', (req, res) => {
   pollMessages();
   res.status(200).send('Worker is running in the background');
+});
+
+app.get('/worker', (req, res) => {
+  res.status(200).send('Worker is running in the background');
+app.listen(port, () => {
+  console.log(`Worker web service listening on port ${port}`);
 });
 
 app.listen(port, () => {
@@ -37,3 +45,4 @@ app.listen(port, () => {
 });
 
 
+/******  958b3661-eca0-4e29-a609-86c90432a6ca  *******/
