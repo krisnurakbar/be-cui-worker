@@ -29,8 +29,9 @@ const worker = async () => {
 
 
       if (!task) {
-        console.log('Queue is empty, stopping worker.');
-        break;
+        console.log('Queue is empty, waiting for 10 seconds before retrying.');
+        await new Promise(resolve => setTimeout(resolve, 10000));
+        continue;
       }
 
 
