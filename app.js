@@ -2,6 +2,7 @@ const express = require('express');
 const { Redis } = require('@upstash/redis');
 const app = express();
 const port = process.env.PORT || 4000;
+const updateProjectProgress = require('./jobs/updateProjectProgress.js');
 
 const client = new Redis({
   url: 'https://top-aardvark-24334.upstash.io',
@@ -26,6 +27,9 @@ async function pollMessages() {
     console.error("Error polling messages:", error);
   }
 }
+
+// CRON job
+updateProjectProgress();
 
 //setInterval(pollMessages, 30000); // Add interval to reload every 30 seconds
 
