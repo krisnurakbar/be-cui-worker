@@ -27,7 +27,7 @@ async function pollMessages() {
   }
 }
 
-setInterval(pollMessages, 30000); // Add interval to reload every 30 seconds
+//setInterval(pollMessages, 30000); // Add interval to reload every 30 seconds
 
 app.get('/worker', (req, res) => {
   res.status(200).send('Worker is running in the background');
