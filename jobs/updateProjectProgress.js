@@ -3,7 +3,7 @@ const pool = require('../config/database.js'); // Import the pg connection pool
 
 // Define the cron job (running every minute)
 const updateProjectProgressJob = () => {
-    cron.schedule('* * * * *', async () => {
+    cron.schedule('0 15 * * *', async () => {
         console.log('Running update for project progress...');
 
         try {
